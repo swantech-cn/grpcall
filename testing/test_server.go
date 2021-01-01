@@ -14,7 +14,7 @@ import (
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 
-	pb "grpcall/testing/helloworld"
+	pb "github.com/swantech-cn/grpcall/testing/helloworld"
 )
 
 const (
@@ -37,6 +37,10 @@ func randStrings(n int) string {
 
 // server is used to implement helloworld.GreeterServer.
 type server struct{}
+
+func (s *server) SayGirl(ctx context.Context, request *pb.HelloRequest) (*pb.HelloReply, error) {
+	panic("implement me")
+}
 
 // SayHello implements helloworld.GreeterServer
 func (s *server) SayHello(ctx context.Context, in *pb.HelloRequest) (*pb.HelloReply, error) {
